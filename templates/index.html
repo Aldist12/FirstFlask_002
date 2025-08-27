@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask POST Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Flask POST Demo</h1>
+        
+        <!-- Form dengan method POST -->
+        <form method="POST" action="/" class="form-container">
+            <div class="form-group">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="pesan">Pesan:</label>
+                <textarea id="pesan" name="pesan" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit">🚀 Kirim Data</button>
+        </form>
+        
+        <!-- Menampilkan hasil jika ada -->
+        {% if result %}
+        <div class="result-container">
+            <h2>🎉 Hasil:</h2>
+            <div class="result-item">
+                <strong>Status:</strong> {{ result.status }}
+            </div>
+            <div class="result-item">
+                <strong>Nama:</strong> {{ result.nama }}
+            </div>
+            <div class="result-item">
+                <strong>Email:</strong> {{ result.email }}
+            </div>
+            <div class="result-item">
+                <strong>Pesan:</strong> {{ result.pesan }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
